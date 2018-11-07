@@ -11,7 +11,7 @@ type ListNode struct {
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	pre := &ListNode{Next: head}
 	first, second := pre, pre
-	for i := 1; i < n; i++ {
+	for i := 0; i <= n; i++ {
 		first = first.Next
 	}
 	for first != nil {
@@ -19,7 +19,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		second = second.Next
 	}
 	second.Next = second.Next.Next
-	return head
+	return pre.Next
 }
 
 func main() {
